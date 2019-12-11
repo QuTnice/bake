@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {
   TopWrap
-} from '../styledLearnBake.js'
+} from '../../page/learnBake/styledLearnBake.js'
 
 class SearchTop extends Component {
   render() {

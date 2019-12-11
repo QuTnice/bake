@@ -11,7 +11,7 @@ class proswiper extends Component {
     super()
   }
   componentDidMount() {
-    var mySwiper = new Swiper('.swiper-container', {
+    var mySwiper = new Swiper('.swiper-container1', {
       direction: 'horizontal',
       navigation: {
         nextEl: '.swiper-button-next',
@@ -32,7 +32,7 @@ class proswiper extends Component {
           推荐课程
           </div>
         <div className='banner'>
-          <div className='swiper-container'>
+          <div className='swiper-container1'>
             <div className='swiper-wrapper'>
               <div className='swiper-slide'>
                 <div className='imgDad'>

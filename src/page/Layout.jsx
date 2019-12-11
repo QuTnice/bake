@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { TabBar } from 'antd-mobile'
 
 import LearnBake from "./learnBake/LearnBake";
+import BakeCircle from "./bakeCircle/BakeCircle";
 
 class home extends Component {
   constructor(props) {
@@ -75,7 +76,7 @@ class home extends Component {
               });
             }}
           >
-            <div>b</div>
+            <BakeCircle></BakeCircle>
           </TabBar.Item>
           <TabBar.Item
             icon={

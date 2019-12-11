@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import SearchTop from "./searchTop/SearchTop";
+import SearchTop from "../../components/search/SearchTop";
 import Btn from './Btn/Btn'
 import ProSwiper from './product/proswiper'
 

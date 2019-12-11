@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
 export const LearnWrap = styled.div  `
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
   overflow-y:hidden;
   /* position: flex; */
   flex-direction:column;
   .main{
+    overflow-x:hidden;
     overflow-y:scroll;
-  
+    /* height: calc(100%-.44rem) */
+    height:100%;
+    padding-bottom:.5rem;
+    background: #fff;
   }
 `
 
@@ -27,7 +31,7 @@ export const TopWrap = styled.div`
     height:.27rem;
     margin:.095rem 0;
   }
-  .inputBox{
+  .inputBox,.tabBox{
     width:2.5rem;
     height:.35rem;
     background:#F5F7F9;
@@ -52,6 +56,14 @@ export const TopWrap = styled.div`
       line-height:3
     }
   }
+  .tabBox{
+    padding:0;
+    height:100%;
+    position: relative;
+  }
+  .am-tabs-default-bar-tab-active{
+font-weight:900!important
+  }
 `
 
 export const BtnWrap = styled.div`
@@ -62,7 +74,7 @@ export const BtnWrap = styled.div`
   background:#fff;
   padding:.1rem 0;
   >div{
-    width:.9378rem;
+    width:25%;
     height:.8531rem;
     background: #fff;
     text-align:center;

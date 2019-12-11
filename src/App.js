@@ -7,6 +7,6 @@ function App() {
     <Layout></Layout>
     // <div>123</div>
   );
-}
+} 
 
 export default App;
