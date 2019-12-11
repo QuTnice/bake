@@ -93,8 +93,9 @@ export const BtnWrap = styled.div`
 
 export const ProSwipers = styled.div `
   width:100%;
-  height:3.2839rem;
+  /* height:3.2839rem; */
   background: #fff;
+  margin-bottom:.25rem;
   .title{
     width:100%;
     font-size: .17rem;
@@ -109,15 +110,21 @@ export const ProSwipers = styled.div `
   }
   .swiper-slide{
     width:1.6rem;
-    height:2.7rem;
+    /* height:2.7rem; */
     /* margin-right:0.5rem; */
     .imgDad{
       position: relative;
+
+    }
+    .imgbox{
+      border-radius:.06rem;
+      width:100%
+      /* height:2.28rem; */
     }
     img{
       border-radius:.06rem;
-      width:1.6rem;
-      height:2.28rem;
+      width:100%;
+      /* height:100%; */
       position: relative;
     }
     .toast{
@@ -138,8 +145,8 @@ export const ProSwipers = styled.div `
       font-weight: bold;
       line-height: 20.25px;
       display: block;
-      width:1.6rem;
-      height:.41rem;   
+      /* width:1.6rem; */
+      /* height:.41rem;    */
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;

@@ -1,4 +1,4 @@
-const { override, fixBabelImports, addWebpackAlias } = require('customize-cra');
+const { override, fixBabelImports, addWebpackAlias,addDecoratorsLegacy } = require('customize-cra');
 
 const path = require('path')
 
@@ -11,5 +11,8 @@ const path = require('path')
    addWebpackAlias({
     assets: path.resolve(__dirname, './src/assets'),
     '@': path.resolve(__dirname, './src/components'),
-  })
+    'utils': path.resolve(__dirname, './src/utils'),
+  }),
+  
+  addDecoratorsLegacy()
  );

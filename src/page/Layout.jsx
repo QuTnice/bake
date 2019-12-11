@@ -9,7 +9,7 @@ class home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'learnBake',
+      selectedTab: 'bakeCircle',
       hidden: false,
       fullScreen: true,
     };

@@ -1,36 +1,70 @@
 import React, { Component } from 'react';
+import TimeAgo from 'timeago-react';
 
 import { DyamicWrap, OperateInfo } from '../styledCirclr'
 
 class Dyamic extends Component {
   render() {
+    // console.log(this.props.client);
     return (
       <DyamicWrap>
         <div className="userinfo">
-          <div className="headImg"></div>
+          <div className="headImg">
+            <img src={this.props.client.clientImage} alt="" />
+          </div>
           <div className="nameinfo">
-            <div className="name">我是网名</div>
+            <div className="name">{this.props.client.clientName}</div>
             <div className="time">
-              <span>5分钟前</span>
-              <span className="classify">我是分类</span>
+              <span><TimeAgo
+                datetime={this.props.client.createTime}
+                locale='zh_CN'
+              /></span>
+              <span className="classify">{this.props.client.title}</span>
             </div>
           </div>
         </div>
-        <div className="contentinfo">
-          有朋友建议说做成“小金鼠”更好看，的确很喜庆！有朋友建议说做成“小金鼠”更好看，的确很喜庆！
-        </div>
+        {
+          this.props.client.introduce &&
+          <div className="contentinfo">
+            <span>{this.props.client.communityName}</span>
+            {this.props.client.introduce}
+          </div>
+        }
         <div className="imgBox">
-          <img src="https://image.hongbeibang.com/FrosVZ3-elXSxsOmsaXfzqMPH9Tk?3456X4608&imageView2/1/w/600/h/800" alt="" />
+          {
+            this.props.client.image.map((value1, index) =>
+              // <i className="imgwrap"  >
+              <img src={value1} key={value1} alt=""
+                width={
+                  this.props.client.image.length === 1 ? '60%' : (this.props.client.image.length === 2 ? '48%' : (this.props.client.image.length === 4) ? '38%' : '32%')
+                }
+                height={
+                  this.props.client.image.length === 1 ? 'auto' : (this.props.client.image.length === 2 ? 'auto' : (this.props.client.image.length === 4) ? 'auto' : '100px')
+                }
+              />
+              // </i>
+            )
+          }
         </div>
-        <div className="category">
-          <div className="cateBox">
-            <img src="https://image.hongbeibang.com/FqSUaeuT5RfrgDbANNggwCu95pfz?4000X3008&imageView2/1/w/70/h/70" alt=""/>
-            <div className="info">
-              <div className="name">小桃酥</div>
-              <div className="writer">作者：甜甜圈</div>
+        {
+          this.props.client.title.length > 0 ?
+            <div className="category">
+              <div className="cateBox">
+                <img src={this.props.client.recipe.image} alt="" />
+                <div className="info">
+                  <div className="name">{this.props.client.recipe.title}</div>
+                  <div className="writer">作者：{this.props.client.recipe.clientName}</div>
+                </div>
+              </div>
             </div>
+            : ''
+        }
+        {
+          this.props.client.clientId == 0 &&this.props.client.title &&
+          <div className="coverTitle">
+            中式腊肠卷
           </div>
-        </div>
+        }
         <div className="operateinfo">
           <OperateInfo
             width="2px"

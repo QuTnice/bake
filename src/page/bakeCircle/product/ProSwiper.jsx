@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
+import { get } from 'utils/http.js'
 
 import Swiper from 'swiper'
 
 import 'swiper/css/swiper.min.css'
 
 class ProSwiper extends Component {
-  constructor() {
-    super()
+  // constructor() {
+  //   super()
+  // }
+
+  state = {
+    list: []
   }
-  componentDidMount() {
+  async componentDidMount() {
+     let result = await get({
+       url:'https://api.hongbeibang.com/feed/getCategory?_t=1576056398285&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U'
+     })
+     this.setState({
+       list:result.data.category[0].item,
+     })
+     console.log(result);
     var mySwiperone = new Swiper('.container1', {
       direction: 'horizontal',
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       },
-      slidesPerView: 2.4,
+      slidesPerView: "auto",
       slidesOffsetBefore: 18,
       slidesOffsetAfter: 18,
       freeMode: true,
       freeModeMomentum: false,
-      spaceBetween: 0,
+      spaceBetween: 10,
       scrollbar: {
         el: '.swiper-scrollbar111',
         hide: true,
@@ -30,26 +42,20 @@ class ProSwiper extends Component {
     mySwiperone.scrollbar.$el.css('background', 'none')
   }
   render() {
+    // console.log(this.props.list);
     return (
       <div>
         <div className='banner'>
           <div className='swiper-container container1'>
             <div className='swiper-wrapper'>
-              <div className='swiper-slide'>
-                <div className='imgDad'>
-                  <img src="https://image.hongbeibang.com/Fqj9HFB5DNvlzAKcVsfSzD6uLseK?640X900&imageView2/1/w/640/h/896" alt="" />
+              {
+                this.state.list.map((value) =>               
+                <div className='swiper-slide' key={value.activityContentId}>
+                  <div className='imgDad'>
+                    <img src={value.image} alt="" />
+                  </div>
                 </div>
-              </div>
-              <div className='swiper-slide'>
-                <div className='imgDad'>
-                  <img src="https://image.hongbeibang.com/Fqj9HFB5DNvlzAKcVsfSzD6uLseK?640X900&imageView2/1/w/640/h/896" alt="" />
-                </div>
-              </div>
-              <div className='swiper-slide'>
-                <div className='imgDad'>
-                  <img src="https://image.hongbeibang.com/Fqj9HFB5DNvlzAKcVsfSzD6uLseK?640X900&imageView2/1/w/640/h/896" alt="" />
-                </div>
-              </div>
+              )}
             </div>
             <div className="swiper-scrollbar swiper-scrollbar111"></div>
           </div>

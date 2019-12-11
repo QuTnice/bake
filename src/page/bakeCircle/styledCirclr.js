@@ -23,14 +23,18 @@ export const CircleWrap = styled.div`
     .container1{
       height:.95rem;
     }
-    img{
-      width:1.5rem;
-      height:.85rem;
-      border-radius:5px;
-    }
     .banner{
+      img{
+        width:1.5rem;
+        height:.85rem;
+        border-radius:5px;
+      }
       /* height:.96rem; */
       padding-top:.05rem;
+      .swiper-slide{
+        width:1.5rem;
+        
+      }
     }
     .banner1{
       padding: .1rem 0 .02rem;
@@ -72,6 +76,11 @@ export const DyamicWrap = styled.div`
       background:#ad3;
       border:.3px solid #E7E2E5;
       margin-right:.1rem;
+      img{
+        width:100%;
+        height:100%;
+        border-radius:50%;
+      }
     }
     .name{
       color:#4A4945;
@@ -99,6 +108,10 @@ export const DyamicWrap = styled.div`
     font-size:.14rem;
     line-height:.2rem;
     color: #4A4945;
+    span{
+      color: #498DD0;
+      font-size:.14rem;
+    }
   }
   .imgBox{
     width:100%;
@@ -106,9 +119,17 @@ export const DyamicWrap = styled.div`
     background:#fff;
     padding: 0 .15rem;
     margin-bottom:.15rem;
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:.1rem;
+    .imgwrap{
+      padding:4px;
+      display:inline;
+    }
     img{
-      max-width:100%;
-      height:auto;
+      /* max-width:100%; */
+      /* height:auto; */
+      margin:2px;
     }
   }
   .category{
