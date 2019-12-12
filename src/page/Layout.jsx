@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 
+import {  withRouter } from 'react-router-dom'
+
 import { TabBar } from 'antd-mobile'
 
 import LearnBake from "./learnBake/LearnBake";
 import BakeCircle from "./bakeCircle/BakeCircle";
+import QuesAnswer from './qa/Ques'
 
+
+@withRouter
 class home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'bakeCircle',
+      selectedTab: 'learn',
       hidden: false,
       fullScreen: true,
     };
+  }
+
+  componentDidMount(){
+    let rou = this.props.location.pathname.split('/')[2]
+    this.setState({
+      selectedTab: rou
+    })
   }
 
   render() {
@@ -25,31 +37,32 @@ class home extends Component {
           hidden={this.state.hidden}
         >
           <TabBar.Item
-            title="学烘焙"
-            key="learnBake"
-            icon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: `url(https://image.hongbeibang.com/FhngZoiK_s7Zw4K3DxLogRfqoO06?50X50&imageView2/1/w/50/h/50) center center /  22px 22px no-repeat` 
-            }}
-            />
-            }
-            selectedIcon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: `url(https://image.hongbeibang.com/FsxN7RUFRJ9Zdris5Z22haR2xIhj?50X50&imageView2/1/w/50/h/50) center center /  22px 22px no-repeat` 
-            }}
-            />
-            }
-            selected={this.state.selectedTab === 'learnBake'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'learnBake',
-              });
-            }}
-          >
-            <LearnBake></LearnBake>
-          </TabBar.Item>
+              title="学烘焙"
+              key="learn"
+              icon={<div style={{
+                width: '22px',
+                height: '22px',
+                background: `url(https://image.hongbeibang.com/FhngZoiK_s7Zw4K3DxLogRfqoO06?50X50&imageView2/1/w/50/h/50) center center /  22px 22px no-repeat` 
+              }}
+              />
+              }
+              selectedIcon={<div style={{
+                width: '22px',
+                height: '22px',
+                background: `url(https://image.hongbeibang.com/FsxN7RUFRJ9Zdris5Z22haR2xIhj?50X50&imageView2/1/w/50/h/50) center center /  22px 22px no-repeat` 
+              }}
+              />
+              }
+              selected={this.state.selectedTab === 'learn'}
+              onPress={() => {
+                this.props.history.push('/home/learn')
+                this.setState({
+                  selectedTab: 'learn',
+                });
+              }}
+            >
+              <LearnBake></LearnBake>
+            </TabBar.Item>
           <TabBar.Item
             icon={
               <div style={{
@@ -68,11 +81,12 @@ class home extends Component {
               />
             }
             title="烘焙圈"
-            key="bakeCircle"
-            selected={this.state.selectedTab === 'bakeCircle'}
+            key="circle"
+            selected={this.state.selectedTab === 'circle'}
             onPress={() => {
+              this.props.history.push('/home/circle')
               this.setState({
-                selectedTab: 'bakeCircle',
+                selectedTab: 'circle',
               });
             }}
           >
@@ -96,15 +110,16 @@ class home extends Component {
               />
             }
             title="问答"
-            key="QA"
-            selected={this.state.selectedTab === 'QA'}
+            key="qa"
+            selected={this.state.selectedTab === 'qa'}
             onPress={() => {
+              this.props.history.push('/home/qa')
               this.setState({
-                selectedTab: 'QA',
+                selectedTab: 'qa',
               });
             }}
           >
-            <div>c</div>
+            <QuesAnswer></QuesAnswer>
           </TabBar.Item>
           <TabBar.Item
             icon={
@@ -127,6 +142,7 @@ class home extends Component {
             key="profile"
             selected={this.state.selectedTab === 'profile'}
             onPress={() => {
+              this.props.history.push('/home/profile')
               this.setState({
                 selectedTab: 'profile',
               });

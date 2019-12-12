@@ -5,7 +5,7 @@ import { DyamicWrap, OperateInfo } from '../styledCirclr'
 
 class Dyamic extends Component {
   render() {
-    // console.log(this.props.client);
+    // console.log(this.props);
     return (
       <DyamicWrap>
         <div className="userinfo">
@@ -13,7 +13,11 @@ class Dyamic extends Component {
             <img src={this.props.client.clientImage} alt="" />
           </div>
           <div className="nameinfo">
-            <div className="name">{this.props.client.clientName}</div>
+            <div className="master">
+              
+              <img width='20px' src="https://image.hongbeibang.com/Fj1UT_HuSX4MkdcukYhWRpioEyWx?200X200&imageView2/1/w/80/h/80" alt="" />
+              <div className="name">{this.props.client.clientName}</div>
+            </div>
             <div className="time">
               <span><TimeAgo
                 datetime={this.props.client.createTime}
@@ -60,7 +64,7 @@ class Dyamic extends Component {
             : ''
         }
         {
-          this.props.client.clientId == 0 &&this.props.client.title &&
+          this.props.client.clientId == 0 && this.props.client.title &&
           <div className="coverTitle">
             中式腊肠卷
           </div>

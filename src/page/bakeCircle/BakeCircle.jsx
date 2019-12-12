@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { get } from 'utils/http.js'
-import { Route, NavLink, Redirect, Switch, withRouter } from 'react-router-dom'
+// import { get } from 'utils/http.js'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 
 import {
   TopWrap
 } from '../learnBake/styledLearnBake'
 import {
   CircleWrap,
-  Bar
 } from './styledCirclr'
 import New from './new/New'
 import Follow from './follow/Follow'
@@ -23,12 +22,10 @@ const tabs = [
 class BakeCircle extends Component {
 
   tabClick = (tab) => {
-    console.log(this.props, tab);
-    this.props.history.push(`/${tab.key}`)
+    this.props.history.push(`/home/circle/${tab.key}`)
   }
-
-
   render() {
+    let key=this.props.location.pathname.split("/").pop()
     return (
       <CircleWrap>
         <TopWrap>
@@ -36,7 +33,7 @@ class BakeCircle extends Component {
           <div className="tabBox">
             <WhiteSpace />
             <Tabs tabs={tabs}
-              initialPage={'new'}
+              initialPage={key==='learn'?'new':key}
               animated={false}
               useOnPan={false}
               tabBarUnderlineStyle={{ border: '1px solid #e98b71', transform: 'scaleX(0.2)', }}
@@ -53,26 +50,24 @@ class BakeCircle extends Component {
         <div className="main">
           <Switch>
             <Route
-              path='/follow'
+              path='/home/circle/follow'
               render={() => (
                 <Follow></Follow>
               )
               }></Route>
-
             <Route
-              path='/new'
+              path='/home/circle/new'
               render={() => (
                 <New></New>
               )
               }></Route>
-
             <Route
-              path='/master'
+              path='/home/circle/master'
               render={() => (
                 <Master></Master>
               )
               }></Route>
-            <Redirect from="/" to="/new"></Redirect>
+            <Redirect from="/home/circle" to="/home/circle/new"></Redirect>
           </Switch>
         </div>
       </CircleWrap >

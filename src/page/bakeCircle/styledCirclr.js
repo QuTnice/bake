@@ -82,6 +82,12 @@ export const DyamicWrap = styled.div`
         border-radius:50%;
       }
     }
+    .master{
+      display:flex;
+      img{
+        overflow:hidden;
+      }
+    }
     .name{
       color:#4A4945;
       font-size:.13rem;

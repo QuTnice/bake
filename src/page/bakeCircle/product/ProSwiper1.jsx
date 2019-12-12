@@ -22,7 +22,7 @@ class ProSwiper1 extends Component {
     this.setState({
       list: result.data.data
     })
-    console.log(result.data.data);
+    // console.log(result.data.data);
     var mySwipertwo = new Swiper('.container2', {
       direction: 'horizontal',
       navigation: {

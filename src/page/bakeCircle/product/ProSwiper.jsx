@@ -20,7 +20,7 @@ class ProSwiper extends Component {
      this.setState({
        list:result.data.category[0].item,
      })
-     console.log(result);
+    //  console.log(result);
     var mySwiperone = new Swiper('.container1', {
       direction: 'horizontal',
       navigation: {
