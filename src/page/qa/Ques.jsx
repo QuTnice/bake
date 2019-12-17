@@ -27,12 +27,14 @@ class Ques extends Component {
   }
 
   render() {
+    let key=this.props.location.pathname.split("/").pop()
     return (
       <QuesWrap>
         <Top></Top>
         <div className="navR">
           <Tabs tabs={tabs} 
-          initialPage={1} 
+          page={key==='qa'?'newQ':key}
+          initialPage={key==='qa'?'newQ':key}
           animated={false} 
           useOnPan={false}
           tabBarUnderlineStyle={{ border: '1px solid #E98B71', transform: 'scaleX(0.4)', }}

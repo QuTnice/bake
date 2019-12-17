@@ -33,6 +33,7 @@ class BakeCircle extends Component {
           <div className="tabBox">
             <WhiteSpace />
             <Tabs tabs={tabs}
+              page={key==='learn'?'new':key}
               initialPage={key==='learn'?'new':key}
               animated={false}
               useOnPan={false}

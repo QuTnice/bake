@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-import {  withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { TabBar } from 'antd-mobile'
 
 import LearnBake from "./learnBake/LearnBake";
 import BakeCircle from "./bakeCircle/BakeCircle";
 import QuesAnswer from './qa/Ques'
+import Profile from './profile/Profile'
 
 
 @withRouter
@@ -148,7 +149,7 @@ class home extends Component {
               });
             }}
           >
-            <div>d</div>
+            <Profile></Profile>
           </TabBar.Item>
         </TabBar>
       </div>
