@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {TopWrap} from './styledSearch'
+import { withRouter } from 'react-router-dom'
 
+
+@withRouter
 class InputTop extends Component {
   state = {
     keyword: ''
@@ -15,10 +18,12 @@ class InputTop extends Component {
 
   backClick(){
     // this.props.history.goBack()
+    this.props.history.goBack()
     console.log('这个单击事件用来返回路由');
   }
 
   render() {
+    console.log(this.props);
     return (
       <TopWrap>
         <div className="back" onClick={this.backClick.bind(this)}>

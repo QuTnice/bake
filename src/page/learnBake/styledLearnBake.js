@@ -73,7 +73,7 @@ export const BtnWrap = styled.div`
   height:1.05rem;
   background:#fff;
   padding:.1rem 0;
-  >div{
+  >.skill{
     width:25%;
     height:.8531rem;
     background: #fff;

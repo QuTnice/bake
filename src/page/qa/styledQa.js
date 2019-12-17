@@ -7,7 +7,7 @@ export const Qitems = border(
 )
 export const Citems = border(
   styled.div`
-  position: relative;
+    position: relative;
     overflow: hidden;
     zoom: 1;
     background-color: #FFFFFF;

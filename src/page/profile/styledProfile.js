@@ -10,7 +10,7 @@ export const ProfileWrap = styled.div`
     height:.44rem;
     background:#fff;
     position: relative;
-    img{
+    .backImg{
       width:.1rem;
       height:.17rem;
       position: absolute;
