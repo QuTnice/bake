@@ -42,10 +42,14 @@ export const ClassifyWrap = styled.div `
     width:100%;
     font-family: sans-serif;
     flex:1;
-    background:#fa3;
+    background:#fff;
+    flex-direction:row;
+    display:flex;
+    overflow:hidden;
     .title{
       height:100%;
-      width:.8rem;
+      /* width:.8rem; */
+      width:23%;
       background:#F5F7F9;
       li{
         height:.5rem;
@@ -53,6 +57,55 @@ export const ClassifyWrap = styled.div `
         text-align:center;
         line-height:.5rem;
         color:#4A4945;
+      }
+      .chose{
+        background: #fff;
+        border-left: 3px solid #E98B71;
+      }
+    }
+    .subContent{
+      font-family: sans-serif;
+      overflow-y:scroll;
+      width:77%;
+        p{
+          padding-top: .1rem;
+          padding-left: .16875rem;
+          padding-bottom: .12rem;
+          font-size: .12rem;
+          font-weight: bold;
+          line-height: .22rem;
+          color: #313131;
+          overflow: hidden;
+          zoom: 1;
+        }
+      } 
+      .contentBox{
+        display:flex;
+        /* width:77%; */
+        flex-wrap:wrap;
+        padding: 0 15px;
+        margin: 0 auto;
+        overflow: hidden;
+        zoom: 1;
+        .itemBox{
+          width:33.33%;
+          padding: 0px 0px 10px 0px;
+          img{
+            font-size: 0;
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+          }
+          
+        }
+      }
+      .imgName{
+        font-size: 12px;
+        color: #313131;
+        margin-top: 5px;
+        text-align: center;
       }
     }
   }

@@ -12,7 +12,7 @@ class Search extends Component {
     let result = await get({
       url: 'https://api.hongbeibang.com/keyword/detail?_t=1576150317692&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U'
     })
-    console.log(result.data.popularSearch);
+    // console.log(result.data.popularSearch);
     this.setState({
       list: result.data.popularSearch
     })
