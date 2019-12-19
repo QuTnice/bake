@@ -19,7 +19,7 @@ class InputTop extends Component {
   }
 
   backClick() {
-    this.props.history.goBack()
+    this.props.history.push('/')
   }
 
   submitSearch() {
@@ -28,6 +28,17 @@ class InputTop extends Component {
     }
     else {
       console.log(this.state.keyword);
+      this.props.history.push('search/recipe/'+ this.state.keyword)
+    }
+  }
+
+  handleKeyUp(e) {
+    if (e.keyCode === 13) {
+      this.props.history.push('/search/recipe/' + e.target.value);
+      this.setState({
+        keyword: ''
+      });
+      // window.location.reload(true); 
     }
   }
 
@@ -39,9 +50,10 @@ class InputTop extends Component {
           <img width='27px' src="https://image.hongbeibang.com/FoTuxKG5pqYKuAsT8BjrflkAxEpj?48X48&imageView2/1/w/48/h/48" alt="" />
         </div>
 
-        <input value={this.state.keyword} onChange={this.handleChange.bind(this)} type="text" placeholder='搜索食谱/食材，烘焙/家常菜一应俱全' />
+        <input value={this.state.keyword} onKeyUp={this.handleKeyUp.bind(this)} onChange={this.handleChange.bind(this)} type="text" placeholder='搜索食谱/食材，烘焙/家常菜一应俱全' />
 
-        <NavLink to='/recipe' className="comeon" onClick={this.submitSearch.bind(this)}>搜索</NavLink>
+        {/* <NavLink to='/search/recipe' className="comeon" onClick={this.submitSearch.bind(this)}>搜索</NavLink> */}
+        <div className="comeon" onClick={this.submitSearch.bind(this)}>搜索</div>
 
       </TopWrap>
     );

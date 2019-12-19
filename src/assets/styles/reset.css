@@ -5,7 +5,10 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
-  .sc-bdVaJa ,.iJdQDd{
+  .am-tab-bar-item>div{
+    height:100%;
+  }
+  .sc-bdVaJa ,.iJdQDd, .sc-EHOje, .fByHhd{
     height:100%
   }
 .sc-htpNat , .bPqpGm{
@@ -15,6 +18,7 @@
 html,
 body {
   overflow: scroll;
+  font-family: sans-serif;
   height: 100%; }
 
 ::-webkit-scrollbar {

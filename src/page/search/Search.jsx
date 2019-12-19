@@ -18,8 +18,9 @@ class Search extends Component {
     })
   }
 
-  handleClick(id){
-    console.log(id);
+  handleClick(id,keyword){
+    console.log(id,keyword);
+    this.props.history.push('/search/recipe/'+ keyword)
   }
 
   render() {
@@ -30,7 +31,7 @@ class Search extends Component {
             <p>热门搜索</p>
             {
               this.state.list.map((value) => 
-                <div className="popular" key={value.popularSearchId} onClick={this.handleClick.bind(this,value.popularSearchId)} >{value.keyword}</div>
+                <div className="popular" key={value.popularSearchId} onClick={this.handleClick.bind(this,value.popularSearchId,value.keyword)} >{value.keyword}</div>
               )
             }
           </div>

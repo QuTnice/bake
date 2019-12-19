@@ -41,10 +41,8 @@ class Ques extends Component {
           tabBarTextStyle={{ fontSize: '14px', color: '#4A4945', fontWeight: 600 }}
           tabBarActiveTextColor='#000'
           tabBarInactiveTextColor='#999'
-
           onTabClick={this.tabClick}
           >
-
           </Tabs>
         </div>
         <div className="main">

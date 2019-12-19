@@ -41,7 +41,8 @@ class Classify extends Component {
   }
 
   detailClick(id, name){
-    console.log(id, name);
+    // console.log(id, name);
+    this.props.history.push('/search/recipe/' + name)
   }
 
   render() {
