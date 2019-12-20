@@ -78,14 +78,14 @@ class repice extends Component {
     this.setState({
       sort: tab.key
     })
-    if (tab.key == 'dishNum') {
+    if (tab.key === 'dishNum') {
       let result = await get({
         url: `https://api.hongbeibang.com/search/getMoreRecipe?_t=1576719801486&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U&pageIndex=0&pageSize=10&keyword=${this.props.location.pathname.split('/')[3]}&sort=${tab.key}`
       })
       this.setState({
         list: result.data.search.list.recipe.data
       })
-    } else if (tab.key == '') {
+    } else if (tab.key === '') {
       let result = await get({
         url: `https://api.hongbeibang.com/search/getMoreRecipe?_t=1576719801486&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U&pageIndex=0&pageSize=10&keyword=${this.props.location.pathname.split('/')[3]}&sort=${tab.key}`
       })

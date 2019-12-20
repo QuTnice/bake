@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { get } from 'utils/http.js'
+import { withRouter } from 'react-router-dom'
 
 import Qitem from '../Qitem'
 
+@withRouter
 class NewQ extends Component {
 
   state = {
@@ -17,6 +19,12 @@ class NewQ extends Component {
       list: result.data.content.data
     })
   }
+
+  handleClick(){
+    console.log(123);
+    // this.props.histort.push('/search/recipe/千层酥')
+  }
+
   render() {
     return (
       <div>

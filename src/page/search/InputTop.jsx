@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { TopWrap } from './styledSearch'
-import { withRouter, NavLink,Route } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 
-import Repice from './repice'
+// import Repice from './repice'
 
 
 @withRouter
@@ -23,7 +23,7 @@ class InputTop extends Component {
   }
 
   submitSearch() {
-    if (this.state.keyword == '') {
+    if (this.state.keyword === '') {
       console.log('kong');
     }
     else {

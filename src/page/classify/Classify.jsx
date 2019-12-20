@@ -60,7 +60,7 @@ class Classify extends Component {
               {/* <li>推荐</li> */}
               {
                 this.state.list.map((value, index) => (
-                  this.state.index == index ? <li key={value.classifyId} onClick={this.handleClick.bind(this, value.classifyId, index)} className='chose'>{value.name}</li> : <li key={value.classifyId} onClick={this.handleClick.bind(this, value.classifyId, index)}>{value.name}</li>
+                  this.state.index === index ? <li key={value.classifyId} onClick={this.handleClick.bind(this, value.classifyId, index)} className='chose'>{value.name}</li> : <li key={value.classifyId} onClick={this.handleClick.bind(this, value.classifyId, index)}>{value.name}</li>
                 ))
               }
             </ul>

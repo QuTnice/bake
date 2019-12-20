@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Route,withRouter,NavLink } from 'react-router-dom'
-import PageSearch from '../../page/search/Search'
+import {withRouter,NavLink } from 'react-router-dom'
+// import PageSearch from '../../page/search/Search'
 import {
   TopWrap
 } from '../../page/learnBake/styledLearnBake.js'

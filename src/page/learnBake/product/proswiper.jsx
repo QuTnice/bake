@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux'
-
+import { withRouter } from 'react-router-dom'
 
 import { ProSwipers } from '../styledLearnBake'
 
@@ -8,12 +8,14 @@ import Swiper from 'swiper'
 // import 'swiper/dist/css/swiper.min.css'
 import 'swiper/css/swiper.min.css'
 
-
+@withRouter
 // @connect(mapState, mapDispatch)
 class proswiper extends Component {
-  constructor() {
-    super()
-  }
+  // constructor() {
+  //   super()
+  // }
+
+
   componentDidMount() {
     var mySwiper123 = new Swiper('.containerall', {
       direction: 'horizontal',
@@ -30,9 +32,12 @@ class proswiper extends Component {
       roundLengths:true,
       spaceBetween: 10,
     });
+    // console.log(mySwiper123);
+  }
 
-
-
+  handleClick(id){
+    // console.log(id);
+    this.props.history.push('/lessonvideo/' + id)
   }
 
   render() {
@@ -48,7 +53,7 @@ class proswiper extends Component {
             <div className='swiper-wrapper'>
               {
                 this.props.swiperPro.item.map((value) =>
-                  <div className='swiper-slide' key={value.categoryItemId}>
+                  <div className='swiper-slide' key={value.categoryItemId}  onClick={this.handleClick.bind(this,value.educationCourseId)}>
                     <div className='imgDad'>
                       <div className="imgbox">
                         <img src={value.image} alt="" />

@@ -64,7 +64,7 @@ class Dyamic extends Component {
             : ''
         }
         {
-          this.props.client.clientId == 0 && this.props.client.title &&
+          this.props.client.clientId === 0 && this.props.client.title &&
           <div className="coverTitle">
             中式腊肠卷
           </div>

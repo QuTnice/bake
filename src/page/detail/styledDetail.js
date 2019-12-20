@@ -4,6 +4,9 @@ import border from '@/styled/border'
 
 
 export const DetailWrap = styled.div`
+    .space30{
+      height:.3rem;
+    }
     font-family: sans-serif;
     display:flex;
     flex-direction:column;
@@ -223,13 +226,17 @@ export const ClientBox = border(styled.div`
 `)
 
 export const MaterialWrap = styled.div`
+  display:flex;
+  align-items:center;
   height:.48rem;
   border-bottom:0.1px solid #F1F1F1;
+  /* line-height:.48rem; */
   /* background:#fa3; */
   span{
     display:inline-block;
     width:50%;
-    line-height:.48rem;
+    padding-right:.1rem;
+    /* line-height:.48rem; */
     color: #313131;
     font-weight: 300;
     font-size: .17rem;

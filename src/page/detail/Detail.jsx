@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { get } from 'utils/http.js'
+import MeterialBox from './Material'
 
-import { DetailWrap, ClientBox, MaterialWrap, Stepitem } from './styledDetail'
+import { DetailWrap, ClientBox } from './styledDetail'
 
 @withRouter
 class Detail extends Component {
@@ -30,43 +31,67 @@ class Detail extends Component {
   }
   inputChange(e) {
     console.log(e.target.value);
-  }
-  addClick() {
-    this.setState({
-      value: ++this.state.value
-    })
-    console.log(this.state.value);
-    (async ()=> {
+    (async () => {
 
       let result = await get({
         url:
-          `https://api.hongbeibang.com/recipe/get?_t=1576759025493&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U&contentId=13969789&quantity=${this.state.value}`
+          `https://api.hongbeibang.com/recipe/get?_t=1576759025493&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U&contentId=${this.props.location.pathname.split('/')[2]}&quantity=${this.state.value}`
       });
-      console.log(result.data.recipe.material);
+      console.log(this.state);
+      this.setState({
+        material: result.data.recipe.material,
+        value:e.target.value
+      })
+    })()
+    // this.setState({
+    //   value:e.target.value
+    // })
+  }
+  async addClick() {
+    (async () => {
+
+      let result = await get({
+        url:
+          `https://api.hongbeibang.com/recipe/get?_t=1576759025493&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U&contentId=${this.props.location.pathname.split('/')[2]}&quantity=${this.state.value}`
+      });
+      console.log(this.state);
+      await this.setState({
+        material: result.data.recipe.material,
+        value: ++this.state.value
+      })
     })()
   }
 
-  // shouldComponentUpdate(){
-  //   console.log('shouldComponentUpdate');
-  // }
+  minusClick() {
+    (async () => {
 
-  minusClick(){
-    this.setState({
-      value: --this.state.value
-    })
-    console.log(this.state.value);
+      if (this.state.value > 1) {
+
+        let result = await get({
+          url:
+            `https://api.hongbeibang.com/recipe/get?_t=1576759025493&csrfToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOjAsImV4cCI6MTc2NTAyNjAzNSwiaWF0IjoxNTc1NjM3MjM1fQ.wNBSKGKrvhFlU8-mPKnqY_rWYuiIL46xD5bvAcf6E9U&contentId=${this.props.location.pathname.split('/')[2]}&quantity=${this.state.value}`
+        });
+        this.setState({
+          material: result.data.recipe.material,
+          value: --this.state.value
+        })
+      }
+      else{
+        alert('最少一份')
+      }
+
+    })()
   }
 
-  backClick(){
+  backClick() {
     this.props.history.push('/')
   }
 
   render() {
-    // console.log(this.props);
     return (
       <DetailWrap>
         <div className="top">
-          <img  onClick={this.backClick.bind(this)} width='27px' src="https://image.hongbeibang.com/FoTuxKG5pqYKuAsT8BjrflkAxEpj?48X48&imageView2/1/w/48/h/48" alt="" />
+          <img onClick={this.backClick.bind(this)} width='27px' src="https://image.hongbeibang.com/FoTuxKG5pqYKuAsT8BjrflkAxEpj?48X48&imageView2/1/w/48/h/48" alt="" />
           <div className="collect">收藏</div>
         </div>
         <div className="main">
@@ -91,25 +116,17 @@ class Detail extends Component {
               <div className="valueWrap">
                 <input type="text" value={this.state.value || '2'} className="valueBox" onChange={this.inputChange.bind(this)} />
               </div>
-              <div className="minus"  onClick={this.addClick.bind(this)}>
+              <div className="minus" onClick={this.addClick.bind(this)}>
                 <div className="addBox"></div>
                 <div className="standBox"></div>
               </div>
 
-              <span style={{color:'#999'}}>&nbsp;&nbsp;&nbsp;(份量/{this.state.list.unit})</span>
+              <span style={{ color: '#999' }}>&nbsp;&nbsp;&nbsp;(份量/{this.state.list.unit})</span>
             </div>
-            {
-              this.state.material.map((value) => (
-                <MaterialWrap
-                  key={value.contentRecipeMaterialId}
-                  color="#f00"
-                >
-                  <span>{value.name}</span>
-                  <span>{value.weight}</span>
-                </MaterialWrap>
-              ))
-            }
+            <MeterialBox value={this.state.material}></MeterialBox>
+
           </div>
+          <div className="space30"></div>
           <div className="step">
             {
               this.state.step.map((value, index) => (

@@ -9,6 +9,8 @@ import Classify from './classify/Classify'
 import Repice from './search/repice'
 import Detail from './detail/Detail'
 
+import VideoLesson from './video/VideoLesson'
+
 import { Route, Switch, Redirect } from 'react-router-dom'
 class BakeForcat extends Component {
   render() {
@@ -44,6 +46,10 @@ class BakeForcat extends Component {
           <Route
             path='/detail'
             component={Detail}
+          ></Route>
+          <Route
+            path='/lessonvideo'
+            component={VideoLesson}
           ></Route>
           <Route path='/search/recipe' render={() => (
             <Repice></Repice>

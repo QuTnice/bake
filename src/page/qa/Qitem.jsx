@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 
 import { Qitems } from './styledQa'
  
+@withRouter
 class Qitem extends Component {
+
+  handleClick(id){
+    this.props.history.push('/detail/' + id)
+  }
   render() {
-    console.log(this.props.value);
+    // console.log(this.props.value);
     return (
       <Qitems className="qitem"
       width="1px"
       color="#E7E2E5"
       direction="bottom"
+      onClick={this.handleClick.bind(this,this.props.value.recipeContentId)}
       >
         <p>{this.props.value.coverTitle}</p>
         {

@@ -5,7 +5,7 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { Tabs } from 'antd-mobile';
 
 import Top from './Top'
-import Qitem from './Qitem'
+// import Qitem from './Qitem'
 
 import CreamQ from './creamQ/CreamQ'
 import NewQ from './newQ/NewQ'
