@@ -7,7 +7,8 @@ import { TabBar } from 'antd-mobile'
 import LearnBake from "./learnBake/LearnBake";
 import BakeCircle from "./bakeCircle/BakeCircle";
 import QuesAnswer from './qa/Ques'
-import Profile from './profile/Profile'
+// import Profile from './profile/Profile'
+import Mine from './profile/Mine'
 
 
 @withRouter
@@ -149,7 +150,7 @@ class home extends Component {
               });
             }}
           >
-            <Profile></Profile>
+            <Mine></Mine>
           </TabBar.Item>
         </TabBar>
       </div>

@@ -8,14 +8,18 @@ export const CircleWrap = styled.div`
   }
     font-family: sans-serif;
     height:100%;
-  .sc-ifAKCX {
+  /* .sc-ifAKCX {
     height:100%!important
-  }
+  } */
   .main{
     height:100%;
     overflow-y:scroll;
     background:#fff;
     padding-bottom:.4rem;
+    overflow:hidden;
+    .wrapper{
+      height:100%;
+    }
     .space10{
       height:.1rem;
       background:#F5F7F9;

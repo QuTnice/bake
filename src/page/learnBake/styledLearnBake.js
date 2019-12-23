@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const LearnWrap = styled.div  `
+.fbRSMy img{
+  background:none!important;
+}
   /* overflow-x:hidden; */
   overflow-y:hidden;
   /* position: flex; */
@@ -23,13 +26,20 @@ export const TopWrap = styled.div`
   background: #fff;
   z-index: 6;
   padding: 0 .18rem;
+  background: #fff;
   margin: 0 auto;
   box-sizing: border-box;
   font-family: sans-serif;
+  .imgBox{
+
+  }
   img{
     width:.27rem;
     height:.27rem;
     margin:.095rem 0;
+    z-index:99999;
+    position: relative;
+    background: #fff;
   }
   .inputBox,.tabBox{
     width:2.5rem;
@@ -42,6 +52,7 @@ export const TopWrap = styled.div`
     img{
       width:.179rem;
       height:.179rem;
+      z-index:99999
     }
     span{
       display:inline-block;

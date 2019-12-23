@@ -4,7 +4,7 @@ class Follow extends Component {
   render() {
     return (
       <div>
-        Follow
+        暂无关注
       </div>
     );
   }

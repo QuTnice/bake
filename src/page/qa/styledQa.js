@@ -167,6 +167,9 @@ export const QuesWrap = styled.div`
       height:100%;
       overflow-y:scroll;
       padding:0 .15rem;
+      .wrapper{
+        height:100%;
+      }
       .qitem{
         padding:.15rem 0 .1rem;
         p{

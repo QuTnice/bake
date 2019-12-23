@@ -3,7 +3,7 @@ import { MaterialWrap } from './styledDetail'
 
 class Material extends Component {
   render() {
-    console.log(this.props.value);
+    // console.log(this.props.value);
     return (
       <div>
         {

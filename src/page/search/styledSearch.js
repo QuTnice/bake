@@ -56,6 +56,13 @@ export const Main = styled.div`
     overflow-y:scroll;
     overflow-x:hidden;
     background:#fff;
+    .wrapper{
+      height:100%;
+    }
+    .loadingBox{
+      width:100%;
+      text-align:center;
+    }
     .itemBox{
       width:100%;
       padding: 0 .15rem .025rem;

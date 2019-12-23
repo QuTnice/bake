@@ -37,7 +37,7 @@ class VideoLesson extends Component {
       list: result.data,
       introduces: result.data.introduces
     })
-    // console.log(this.state.list);
+    console.log(this.state.list);
   }
 
   showModal = key => (e) => {
@@ -50,6 +50,11 @@ class VideoLesson extends Component {
     this.setState({
       [key]: false,
     });
+  }
+
+  buyClick(){
+    console.log('buy');
+    this.props.history.push('/cart/'+ this.state.list.educationCourseId)
   }
 
   onWrapTouchStart = (e) => {
@@ -165,8 +170,8 @@ class VideoLesson extends Component {
               <img src="https://image.hongbeibang.com/FoOJzEIUP4G3Ub0wp_XeNNYIHH0s?imageView2/1/w/640/h/640" alt="" />
               <div className='info'>咨询</div>
             </div>
-            <div className='buyLesson'>
-              <span>￥9.9</span><span>购买本课程</span>
+            <div className='buyLesson' onClick={this.buyClick.bind(this)}>
+              <span>￥{this.state.list.price}</span><span>购买本课程</span>
             </div>
           </div>
         </VideoWrap>

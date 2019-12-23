@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { get } from 'utils/http.js'
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+// import BScroll from 'better-scroll'
 
 import {
   TopWrap
@@ -24,12 +25,16 @@ class BakeCircle extends Component {
   tabClick = (tab) => {
     this.props.history.push(`/home/circle/${tab.key}`)
   }
+
+  
   render() {
     let key=this.props.location.pathname.split("/").pop()
     return (
       <CircleWrap>
         <TopWrap>
-          <img src="https://image.hongbeibang.com/Fj1u8rBVnt5DLwXqhx8QKlRPLoGI?48X48&imageView2/1/w/48/h/48" alt="" />
+          <div className="imgBox">
+            <img src="https://image.hongbeibang.com/Fj1u8rBVnt5DLwXqhx8QKlRPLoGI?48X48&imageView2/1/w/48/h/48" alt="" />
+          </div>
           <div className="tabBox">
             <WhiteSpace />
             <Tabs tabs={tabs}
@@ -46,7 +51,9 @@ class BakeCircle extends Component {
             </Tabs>
             <WhiteSpace />
           </div>
-          <img src="https://image.hongbeibang.com/FjmYGE5z6RvQL-_fdLKuSGYfmwO2?48X48&imageView2/1/w/48/h/48" alt="" />
+          <div className="imgBox">  
+            <img src="https://image.hongbeibang.com/FjmYGE5z6RvQL-_fdLKuSGYfmwO2?48X48&imageView2/1/w/48/h/48" alt="" />
+          </div>
         </TopWrap>
         <div className="main">
           <Switch>
